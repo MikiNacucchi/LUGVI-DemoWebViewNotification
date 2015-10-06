@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DemoWebViewNotification</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Demo Code -->
+    <string name="str_noconnection">ERRORE non sei connesso ad internet!</string>
+    <string name="url_lugvi_events">http://vicenza.linux.it/node/177</string>
+    <string name="str_notificationText">E\' Martedì! che c\'è stasera a LUG Vi?</string>
+    <!-- -->
+
+</resources>
