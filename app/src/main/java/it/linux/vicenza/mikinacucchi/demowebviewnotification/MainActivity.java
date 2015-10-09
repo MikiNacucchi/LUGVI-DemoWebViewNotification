@@ -1,5 +1,6 @@
 package it.linux.vicenza.mikinacucchi.demowebviewnotification;
 
+import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -11,10 +12,12 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,11 +27,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*  Demo Code   */
+        Log.i("MainActivity", "onCreate");
+
+        /*  Demo Code */
         if(isOnline()){
             String link = getString(R.string.url_lugvi_events);
 
             WebView webView = (WebView)findViewById(R.id.webView);
+            //Abilito la webview a funzionare da "mini-Browser" (anche pagine non in locale)
+            webView.setWebViewClient(new WebViewClient());
+
             //Abilita Javascript
             WebSettings webSettings = webView.getSettings();
             webSettings.setJavaScriptEnabled(true);

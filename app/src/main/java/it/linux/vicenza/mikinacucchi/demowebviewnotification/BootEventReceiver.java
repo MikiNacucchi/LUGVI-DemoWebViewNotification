@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import java.util.Calendar;
 
@@ -24,22 +25,28 @@ public class BootEventReceiver extends BroadcastReceiver {
 
 
         /*  Demo Code*/
+
+        //"Gestore dei promemoria" per riverificare se sia diventato Martedì
+        AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+
+        Intent i = new Intent(context, BootEventReceiver.class);//Richiama questo Receiver
+        PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);//<-- PendingIntent!
+
+
+
         //Verifica se oggi è Martedì
         if(isTuesday()) {
+            Log.i("BootEventReceiver","BootEventReceiver|isTuesday");
+
+            am.cancel(pi);//Cancella allarmi pendendti per evitare notifiche multiple, sarà riattivato alla prossima riaccensione
 
             buildNotification(context);//Visualizza la notifica
-
         }
         else{
-            //Imposta un "promemoria" per riverificare se sia diventato Martedì
-            AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+            Log.i("BootEventReceiver","BootEventReceiver|else");
 
-            //Richiama questo Receiver
-            Intent i = new Intent(context, BootEventReceiver.class);
-            PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-
-            //Verifica tra 5 ore
-            am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 3600 * 5 , pi);
+            //Verifica ogni ora
+            am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000  * 3600, pi);
         }
         /*  =========   */
     }
