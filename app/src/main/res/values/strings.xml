@@ -8,6 +8,9 @@
     <string name="str_noconnection">ERRORE non sei connesso ad internet!</string>
     <string name="url_lugvi_events">http://vicenza.linux.it/node/177</string>
     <string name="str_notificationText">E\' Martedì! che c\'è stasera a LUG Vi?</string>
+    <!-- Wear -->
+    <string name="str_action_map">Raggiungi LugVi</string>
+
     <!-- -->
 
 </resources>

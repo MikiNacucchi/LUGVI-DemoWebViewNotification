@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DemoWebViewNotification.iml" filepath="$PROJECT_DIR$/DemoWebViewNotification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemoWebViewNotificationWear.iml" filepath="$PROJECT_DIR$/DemoWebViewNotificationWear.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

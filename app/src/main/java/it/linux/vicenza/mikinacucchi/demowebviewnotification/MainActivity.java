@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.i("MainActivity", "onCreate");
-
         /*  Demo Code */
         if(isOnline()){
             String link = getString(R.string.url_lugvi_events);
@@ -51,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
             //Termino l'Activity non potendo visualizzare la pagina web
             finish();
         }
+
+        //Codice da eliminare! Forza l'avvio del BroadcastReceiver
+        Intent i = new Intent(this, BootEventReceiver.class);
+        sendBroadcast(i);
 
         /*  ========    */
 
